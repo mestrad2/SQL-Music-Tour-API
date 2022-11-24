@@ -1,16 +1,14 @@
-'use strict';
+'use strict'
+const { DataTypes } = require('sequelize')
 
-const { DataTypes } = require('sequelize');
-
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn('bands', 'recommendation', {
       type: DataTypes.STRING
     })
   },
 
-  async down (queryInterface, Sequelize) {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn('bands', 'recommendation')
   }
-};
+}
